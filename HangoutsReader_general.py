@@ -150,5 +150,5 @@ def userWordsPerMessage():
 
 #this will show you the first and last 5 chat names, you can do pm anything with this ...
 #including make a csv with the information
-print(getPreviousChatNames(gc).head())
-print(getPreviousChatNames(gc).tail())
+#print(getPreviousChatNames(gc).head())
+#print(getPreviousChatNames(gc).tail())
