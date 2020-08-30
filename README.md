@@ -19,4 +19,5 @@ tell you how many words a person has sent
 tell you how many words a person sends per message on average
 
 filter the csv to exclude empty messages and hyperlinked messages
-generate a cool word cloud
+
+generate a cool word cloud of the most frequent (uncommon) words used in the chat
