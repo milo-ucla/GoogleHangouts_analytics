@@ -1,4 +1,4 @@
-# GoogleHangouts_analytics_forfun
+# GoogleHangouts_analytics
 
 Run this code in the same folder as a groupchat csv.
 Make sure you have a way to run python code.
@@ -8,7 +8,7 @@ Don't have one?
 >Follow the instructions on Use https://hangoutparser.jay2k1.com/ to generate a CSV file of a single groupchat
 >place groupchat in the same directory as the .py code from this project
 
-This code will:
+This code has functions that can:
 
 tell you all previous chat names of the groupchat
 
