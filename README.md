@@ -1,4 +1,4 @@
-# GoogleHangouts_analytics
+# Google Hangouts Analytics
 
 Run this code in the same folder as a groupchat csv.
 Make sure you have a way to run python code.
