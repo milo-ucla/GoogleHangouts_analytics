@@ -11,8 +11,12 @@ Don't have one?
 This code will:
 
 tell you all previous chat names of the groupchat
+
 tell you how many messages a person has sent
+
 tell you how many words a person has sent
+
 tell you how many words a person sends per message on average
+
 filter the csv to exclude empty messages and hyperlinked messages
 generate a cool word cloud
