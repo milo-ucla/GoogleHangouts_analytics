@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+from GoogleHangouts_analytics.general_functions import generateWordCloud, getPreviousChatNames, getUserChatFrequencies, getUserWordCounts, getUserWordsPerMessage
 import general_functions as general
 import pandas as pd
 import csv
@@ -37,8 +38,21 @@ def main(args = sys.argv[1:]):
 
     args = parser.parse_args(args)
 
-    
-    #gc = pd.read_csv(name_of_csv, delimiter=";",encoding="utf8",header=0,index_col="sender_name")
+    ##############################
+
+    gc = pd.read_csv(name_of_csv, delimiter=";",encoding="utf8",header=0,index_col="sender_name")
+
+    if (args.cloud):
+        generateWordCloud(gc)
+    if(args.chatnames):
+        getPreviousChatNames(gc)
+    if(args.preview):
+        print(getUserChatFrequencies(gc))
+    else:
+        print("User Chat Freq. Preview", getUserChatFrequencies(gc))
+        print("Word Count by Individual", getUserWordCounts(gc))
+        print("User Words Per Message Average", getUserWordsPerMessage(gc))
+
 
 if __name__ == "__main__":
     main()

@@ -57,7 +57,7 @@ def word_count(str):
 
 #returns a zipped list of (user,how many messages they have sent)
 #does not use pandas, not efficient, should be changed in a later version to involve the pd library
-def userChatFrequencies():
+def getUserChatFrequencies():
 	users = []
 	chatFreq=[]
 
@@ -80,7 +80,7 @@ def userChatFrequencies():
 
 #returns a zipped list of (users,total word count)
 #does not use pandas, not efficient, should be changed in a later version to involve the pd library
-def userWordCounts():
+def getUserWordCounts():
 	users = []
 	wordCount=[]
 
@@ -103,7 +103,7 @@ def userWordCounts():
 
 #Returns a zipped list of (users,words per message avg)
 #does not use pandas, not efficient, should be changed in a later version to involve the pd library
-def userWordsPerMessage():
+def getUserWordsPerMessage():
 	users = []
 	chatFreq=[]
 	wordCount=[]
