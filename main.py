@@ -12,7 +12,12 @@ name_of_csv: str
 def main(args = sys.argv[1:]):
     print("start")
     parser = argparse.ArgumentParser()
-    name_of_csv = args[-1]
+    # try: 
+    #     name_of_csv = args[-1]
+    #     assert name_of_csv.split(".")[1] == '.csv'
+    # except: 
+    #     print("no valid file given")
+    #     #exit(1)
 
     parser.add_argument("--cloud",
                         help = "Generate a word cloud of most commonly types words (with some automatic filtering)",
@@ -21,22 +26,19 @@ def main(args = sys.argv[1:]):
 
     parser.add_argument("--chatnames",
                         help = "Display previous names that the chat has had",
-                        type = bool,
-                        default = False)
+                        action = "store_true",
+                        )
 
     parser.add_argument("-p",
                         "--preview",
                         help = "Display less information",
-                        type = bool,
-                        default = False)
+                        action = "store_true",
+                        )
 
     args = parser.parse_args(args)
 
-    if args.cloud:
-        print("cloud works")
-    print(args)
-    gc = pd.read_csv(name_of_csv, delimiter=";",encoding="utf8",header=0,index_col="sender_name")
+    
+    #gc = pd.read_csv(name_of_csv, delimiter=";",encoding="utf8",header=0,index_col="sender_name")
 
-    if __name__ == "__main__":
-        print("yes")
-        main()
+if __name__ == "__main__":
+    main()
