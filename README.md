@@ -1,6 +1,6 @@
 # Google Hangouts Analytics
 
-Run this code in the same folder as a groupchat csv.
+Run this code in the same folder as your groupchat formatted as a csv (see JSON -> CSV converter).
 Make sure you have a way to run python code.
 
 Don't have one?
@@ -21,7 +21,3 @@ filter the csv to exclude empty messages and hyperlinked messages
 
 generate a cool word cloud of the most frequent (uncommon) words used in the chat
 
-## To Do
-* add some argparsing to make this useful in command line (Unix)
-* Try to add more graphical representations of the data built in (-g option?)
-* Make it more clear as an API, right now the file itself needs to be written to customize output 
