@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 
 
 name_of_csv='groupchat.csv'
-gc = pd.read_csv(name_of_csv,delimiter=";",encoding="utf8",header=0,index_col="sender_name")
+
 
 #generates a new csv document called "groupchat_modified.csv" that has all messages as strings and 
 #all hyperlinks removed
