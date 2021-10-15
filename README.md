@@ -23,6 +23,6 @@ filter the csv to exclude empty messages and hyperlinked messages
 generate a cool word cloud of the most frequent (uncommon) words used in the chat
 
 ## To Do
-> add some argparsing to make this useful in command line (Unix)
-> Try to add more graphical representations of the data built in (-g option?)
-> Make it more clear as an API, right now the file itself needs to be written to customize output 
+* add some argparsing to make this useful in command line (Unix)
+* Try to add more graphical representations of the data built in (-g option?)
+* Make it more clear as an API, right now the file itself needs to be written to customize output 
