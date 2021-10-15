@@ -5,7 +5,6 @@ Make sure you have a way to run python code.
 
 Don't have one?
 >Go to Takeout.Google.com to request a zip file of your Hangouts data
->Follow the instructions on Use https://hangoutparser.jay2k1.com/ to generate a CSV file of a single groupchat
 >place groupchat in the same directory as the .py code from this project
 
 This code has functions that can:
