@@ -1,6 +1,7 @@
-#!/usr/bin/python3
-import general_functions as general
+#!/usr/bin/env python3
+import general_functions as util
 import pandas as pd
+import matplotlib.pyplot as plt
 import csv
 from os import path
 
@@ -10,10 +11,10 @@ import argparse
 name_of_csv: str
 
 def main(args = sys.argv[1:]):
-    print("start")
+
     parser = argparse.ArgumentParser()
     # try: 
-    #     name_of_csv = args[-1]
+    name_of_csv = 'groupchat_modified.csv'
     #     assert name_of_csv.split(".")[1] == '.csv'
     # except: 
     #     print("no valid file given")
@@ -37,8 +38,23 @@ def main(args = sys.argv[1:]):
 
     args = parser.parse_args(args)
 
-    
-    #gc = pd.read_csv(name_of_csv, delimiter=";",encoding="utf8",header=0,index_col="sender_name")
+    ##############################
+
+    gc = pd.read_csv(name_of_csv,encoding="utf8",header=0,dtype = {'message':'object'})
+    plt.plot([1,2,3,4], [1,2,3,4])
+    plt.show()
+    #print(gc.message_type.unique())
+
+    if (args.cloud):
+        util.generateWordCloud(gc)
+    if(args.chatnames):
+        print(util.getPreviousChatNames(gc))
+    if(args.preview):
+        print(util.getUserChatFrequencies(gc))
+    # else:
+    #     print("User Chat Freq. Preview", util.getUserChatFrequencies(gc))
+    #     print("Word Count by Individual", util.getUserWordCount(gc))
+    #     print("User Words Per Message Average", util.getUserWordsPerMessage(gc))
 
 if __name__ == "__main__":
     main()

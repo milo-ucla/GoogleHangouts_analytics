@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import numpy as np
 import pandas as pd
 import csv
@@ -24,29 +25,30 @@ def refineChat(chat):
 	chat.to_csv('groupchat_modified.csv',encoding="utf8")
 
 #generates a word cloud of the words typed into the chat
-def generateWordCloud(chat):
+def generateWordCloud(gc):
 	stopwords = set(STOPWORDS)
 	stopwords.update(["https", "lh3", "googleusercontent", "one", "lol","jpg","thats","conversation","s0","ok","changed","removed","user","png"])
-	text = " ".join(str(message).lower() for message in chat.message)
+	df = gc.loc[(gc['message_type'] == "REGULAR_CHAT_MESSAGE")]
+	text = df.message.str.cat(sep=' ')
+	print(text[0:100])
 
 	# Create and generate a word cloud image:
 	wordcloud = WordCloud(max_font_size=400, max_words=1000, 
 		background_color="white", stopwords=stopwords,
 		width=1600, height=800).generate(text)
-
+	wordcloud.to_file("./wordcloud.png")
 	# Display the generated image:
 	plt.figure(figsize=[160,80])
 	plt.imshow(wordcloud, interpolation='bilinear')
 	plt.axis("off")
-	plt.show()
+	plt.show(block=True)
 
 #creates a DataFrame with two columns, the user's name and the title they named the chat to
-def getPreviousChatNames(chat):
-	chat = chat[chat.message_type == "RENAME_CONVERSATION"]
-	chat['message'] = chat['message'].map(lambda x: str(x))
-	chat['message_type'] = chat['message'].map(lambda x: str(x))
-	chat['message'] = chat['message'].map(lambda x:  x.rsplit("to",1)[1].replace("\'",""))
-	return(chat.drop(['unixtime','timestamp','message_type','message_html','sender_id'],axis=1))
+def getPreviousChatNames(gc):
+	df = gc.loc[gc['message_type'] == "RENAME_CONVERSATION"]
+	df.message.str.replace("changed",'')
+	#iterate through rows and reformat, export as an array
+	return (df[['sender_name','message']])
 
 def word_count(str):
 	count=0
@@ -57,7 +59,7 @@ def word_count(str):
 
 #returns a zipped list of (user,how many messages they have sent)
 #does not use pandas, not efficient, should be changed in a later version to involve the pd library
-def userChatFrequencies():
+def getUserChatFrequencies(gc):
 	users = []
 	chatFreq=[]
 
@@ -80,7 +82,15 @@ def userChatFrequencies():
 
 #returns a zipped list of (users,total word count)
 #does not use pandas, not efficient, should be changed in a later version to involve the pd library
-def userWordCounts():
+def getUserWordCounts(gc):
+	Index = ['sender_name', 'unixtime', 'timestamp', 'sender_id', 'message_type', 'message', 'message_html']
+
+
+
+
+
+
+def getUserWordCounts2(gc):
 	users = []
 	wordCount=[]
 
@@ -103,7 +113,7 @@ def userWordCounts():
 
 #Returns a zipped list of (users,words per message avg)
 #does not use pandas, not efficient, should be changed in a later version to involve the pd library
-def userWordsPerMessage():
+def getUserWordsPerMessage(gc):
 	users = []
 	chatFreq=[]
 	wordCount=[]
@@ -133,22 +143,3 @@ def userWordsPerMessage():
 
 	return(userWPM_sorted)
 
-#THIS IS WHERE THE FUN BEGINS
-
-#if you want this to actually effect the user functions, the user functions must be rewritten to 
-#work with the modified format
-
-#refineChat(gc)
-
-#gives fun stats!
-#userChatFrequencies()
-#userWordCounts()
-#userWordsPerMessage()
-
-#word cloud!!! edit the STOPLIST if you want to remove specific words
-#generateWordCloud(gc)
-
-#this will show you the first and last 5 chat names, you can do pm anything with this ...
-#including make a csv with the information
-#print(getPreviousChatNames(gc).head())
-#print(getPreviousChatNames(gc).tail())
