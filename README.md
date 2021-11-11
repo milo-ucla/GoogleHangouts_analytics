@@ -1,4 +1,4 @@
-# Google Hangouts Analytics
+# Google Hangouts Analytics 🔬
 
 Run this code in the same folder as your groupchat formatted as a csv (see JSON -> CSV converter).
 Make sure you have a way to run python code and have used pip to installed venv.
