@@ -1,23 +1,30 @@
 # Google Hangouts Analytics
 
 Run this code in the same folder as your groupchat formatted as a csv (see JSON -> CSV converter).
-Make sure you have a way to run python code.
+Make sure you have a way to run python code and have used pip to installed venv.
 
-Don't have one?
+### Starting off
+First, run the command
+
+`$python3 -m venv ./env` to create a virtual environment in which to store your dependencies. 
+
+Next, run `$source env/bin/activate` in the project directory to start your venv. Once you are in a venv, you can install all dependencies for this project by running `$python3 -m pip install -r requirements.txt`
+
+## Don't have a file for you groupchat ?
 >Go to Takeout.Google.com to request a zip file of your Hangouts data
 >place groupchat in the same directory as the .py code from this project
 
-This code has functions that can:
+### Once you download the code, you have the option to:
 
-tell you all previous chat names of the groupchat
+* see all previous chat names of the groupchat
 
-tell you how many messages a person has sent
+* see how many messages a person has sent
 
-tell you how many words a person has sent
+* see how many words a person has sent
 
-tell you how many words a person sends per message on average
+* see how many words a person sends per message on average
 
-filter the csv to exclude empty messages and hyperlinked messages
+* filter the data to exclude empty messages and hyperlinked messages
 
-generate a cool word cloud of the most frequent (uncommon) words used in the chat
+* generate a cool word cloud of the most frequent (uncommon) words used in the chat
 
